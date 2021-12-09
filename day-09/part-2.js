@@ -21,9 +21,7 @@ const isLow = (pos) => {
 const getBasin = ([pos, x], acc = new Set([pos])) => {
   const neighbours = getNeighbours(pos).filter(([, y]) => y > x && y !== 9);
   const positions = new Set([...acc, ...neighbours.map(([nPos]) => nPos)]);
-  const ofNeighbours = neighbours.map(
-    (n) => getBasin(n, )
-  );
+  const ofNeighbours = neighbours.map((n) => getBasin(n, positions));
 
   return Array.from(new Set([
     ...acc,
